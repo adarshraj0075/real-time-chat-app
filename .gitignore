@@ -4,3 +4,5 @@ backend/node_modules
 docker/mongo_data
 *.log
 .DS_Store
+backend/logs
+logs

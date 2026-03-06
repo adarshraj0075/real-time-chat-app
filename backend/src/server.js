@@ -3,6 +3,7 @@ const express=require("express");
 const mongoose=require("mongoose");
 const authRoute=require("./modules/auth/auth.routes");
 const auth=require("./middleware/auth");
+const logger=require("./utils/logger")
 
 const app=express();
 app.use(express.json());
@@ -20,9 +21,9 @@ app.use("/api/auth",authRoute)
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
-    console.log("mongo connected");
+    logger.info("mongo connected");
     app.listen(process.env.PORT,()=>{
-        console.log("server connected")
+        logger.info("server connected")
     });
 
 })
